@@ -1,5 +1,5 @@
 import 'package:ronda/app/configs/palette.config..dart';
-import 'package:ronda/app/views/home/predios.dart';
+import 'package:ronda/app/views/pages/predios/predios.dart';
 import 'package:flutter/material.dart';
 
 import '../../modules/drawer.dart';
@@ -12,9 +12,10 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  int _current_Index = 0;
+  int _current_Index = 1;
 
   List<List<Widget>> body = const [
+    [Text("Home"),  Icon(Icons.home)],
     [Text("Predios"), Predios()],
     [Text("Configurações"), Icon(Icons.menu)],
     [Text("QRCode"), Icon(Icons.qr_code)],
@@ -30,6 +31,7 @@ class _BottomNavState extends State<BottomNav> {
         ),
         body: Center(child: body[_current_Index][1]),
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           currentIndex: _current_Index,
           onTap: (int newIndex) {
             setState(() {
@@ -37,6 +39,10 @@ class _BottomNavState extends State<BottomNav> {
             });
           },
           items: const [
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: Icon(Icons.home),
+            ),
             BottomNavigationBarItem(
               label: "Prédios",
               icon: Icon(Icons.location_city),

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:ronda/app/views/pages/login.page.dart';
 import 'package:ronda/app/views/pages/login2.page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -51,7 +50,12 @@ class AppController extends ChangeNotifier {
   Future<bool> validaLogin() async{
   SharedPreferences shared = await SharedPreferences.getInstance();
 
-  return shared.getString("auth") != null;
+  var jsonString = shared.getString("auth");
+  if(jsonString == null) return false;
+
+  auth = Auth.fromJson(jsonDecode(jsonString));
+
+  return true;
 }
 
 

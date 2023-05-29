@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ronda/app/views/pages/login2.page.dart';
+import 'package:ronda/app/controllers/app_controller.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../home/bottom_menu.dart';
-import 'login.page.dart';class LandingPage extends StatefulWidget {
+import 'login2.page.dart';
+
+class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
 
   @override
@@ -16,9 +18,9 @@ class _LandingPageState extends State<LandingPage> {
   @override
   void initState(){
     super.initState();
-    validaLogin().then((v){
+    AppController.instance.validaLogin().then((v){
       if (v){
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>BottomNav()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const BottomNav()));
       }else{
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const LoginPage2()));
       }
@@ -35,11 +37,5 @@ class _LandingPageState extends State<LandingPage> {
       ),
     );
   }
-
-Future<bool> validaLogin() async{
-  SharedPreferences shared = await SharedPreferences.getInstance();
-
-  return shared.getString("token") != null;
-}
 
 }

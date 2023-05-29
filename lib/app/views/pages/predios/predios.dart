@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ronda/app/views/pages/predios/novo_predio.page.dart';
 
-import '../../configs/palette.config..dart';
+import '../../../configs/palette.config..dart';
 
 class Predios extends StatefulWidget {
   const Predios({super.key});
@@ -11,18 +12,26 @@ class Predios extends StatefulWidget {
 
 class _PrediosState extends State<Predios> {
   final ScrollController listScrollController = ScrollController();
-  List<String> itens = [
-    "Vila Alpina",
-    "Pinheiros",
-    "Tatuapé",
-    "Guararema",
-    "Guarulhos",
-    "São Caetano",
+  List<List<String>> itens = [
+    ["Condomonio VP","Vila Alpina","uKRGcFE"],
+    ["Predio Pinheiros","Pinheiros","pDrBgw9"],
+    ["Condomio do tatu","Tatuapé","BheR0n6"],
+    ["Predio Gua","Guararema","HWuffaQ"],
+    ["Condomio Corint","Guarulhos","uXGNj7n"],
+    ["Predio Catetano","São Caetano","5GyyFB3"],
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          print("FOII");
+           Navigator.push(context, MaterialPageRoute(builder: (context)=>const NovoPredio()));
+        },
+        child: const Icon(Icons.add), 
+        ),
+      body:Padding(
       padding: const EdgeInsets.all(10.0),
       child: ListView.builder(
         controller: listScrollController,
@@ -53,7 +62,8 @@ class _PrediosState extends State<Predios> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(50),
                           child: Image.network(
-                            "https://s2.glbimg.com/m4sELSI7M4B_xmLbBsfEz9ESS-c=/smart/e.glbimg.com/og/ed/f/original/2020/09/08/10-predios-mais-altos-brasil-orion-goiania.jpg",
+                            //"https://s2.glbimg.com/m4sELSI7M4B_xmLbBsfEz9ESS-c=/smart/e.glbimg.com/og/ed/f/original/2020/09/08/10-predios-mais-altos-brasil-orion-goiania.jpg",
+                            "https://i.imgur.com/"+ itens[index][2] +".jpg",
                             width: 100,
                             height: 100,
                             fit: BoxFit.fill,
@@ -64,7 +74,7 @@ class _PrediosState extends State<Predios> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              itens[index],
+                              itens[index][0],
                               style: TextStyle(
                                 color: Colors.black.withOpacity(0.6),
                                 fontSize: 20,
@@ -73,7 +83,7 @@ class _PrediosState extends State<Predios> {
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              "Some Text here",
+                              itens[index][1],
                               style: TextStyle(
                                 color: Colors.black.withOpacity(0.6),
                                 fontSize: 15,
@@ -112,6 +122,7 @@ class _PrediosState extends State<Predios> {
           );
         },
       ),
+    )
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:ronda/app/configs/palette.config..dart';
-import 'package:ronda/app/views/home/bottom_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:ronda/app/views/pages/landing.page.dart';
 import 'package:window_size/window_size.dart';

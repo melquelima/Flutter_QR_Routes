@@ -17,7 +17,7 @@ class User{
 
 class Auth{
   int? id;
-  String? token = "";
+  String token = "";
   User user  = User.factory();
 
   Auth(this.token, this.user);
