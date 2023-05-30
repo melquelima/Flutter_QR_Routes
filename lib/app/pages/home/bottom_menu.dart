@@ -1,5 +1,5 @@
 import 'package:ronda/app/configs/palette.config..dart';
-import 'package:ronda/app/views/pages/predios/predios.dart';
+import 'package:ronda/app/pages/predios/predios.dart';
 import 'package:flutter/material.dart';
 
 import '../../modules/drawer.dart';
@@ -15,7 +15,7 @@ class _BottomNavState extends State<BottomNav> {
   int _current_Index = 1;
 
   List<List<Widget>> body = const [
-    [Text("Home"),  Icon(Icons.home)],
+    [Text("Home"), Icon(Icons.home)],
     [Text("Predios"), Predios()],
     [Text("Configurações"), Icon(Icons.menu)],
     [Text("QRCode"), Icon(Icons.qr_code)],
@@ -50,7 +50,8 @@ class _BottomNavState extends State<BottomNav> {
             BottomNavigationBarItem(
               label: "Configurações",
               icon: Icon(Icons.settings),
-            ),BottomNavigationBarItem(
+            ),
+            BottomNavigationBarItem(
               label: "QrCode",
               icon: Icon(Icons.qr_code),
             ),

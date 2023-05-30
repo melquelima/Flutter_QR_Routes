@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../configs/palette.config..dart';
+import '../../configs/palette.config..dart';
 
 class NovoPredio extends StatefulWidget {
   const NovoPredio({super.key});
@@ -30,17 +30,52 @@ class _NovoPredioState extends State<NovoPredio> {
               //crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Center(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.network(
-                      //"https://s2.glbimg.com/m4sELSI7M4B_xmLbBsfEz9ESS-c=/smart/e.glbimg.com/og/ed/f/original/2020/09/08/10-predios-mais-altos-brasil-orion-goiania.jpg",
-                      "https://i.imgur.com/uKRGcFE.jpg",
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.fill,
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    child: Stack(
+                      children: <Widget>[
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.network(
+                            //"https://s2.glbimg.com/m4sELSI7M4B_xmLbBsfEz9ESS-c=/smart/e.glbimg.com/og/ed/f/original/2020/09/08/10-predios-mais-altos-brasil-orion-goiania.jpg",
+                            "https://i.imgur.com/uKRGcFE.jpg",
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Palette.customBlue.shade300,
+                            ),
+                            child: IconButton(
+                              iconSize: 20,
+                              icon: const Icon(Icons.edit),
+                              color: Colors.white,
+                              onPressed: () {},
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
+                // Center(
+                //   child: ClipRRect(
+                //     borderRadius: BorderRadius.circular(50),
+                //     child: Image.network(
+                //       //"https://s2.glbimg.com/m4sELSI7M4B_xmLbBsfEz9ESS-c=/smart/e.glbimg.com/og/ed/f/original/2020/09/08/10-predios-mais-altos-brasil-orion-goiania.jpg",
+                //       "https://i.imgur.com/uKRGcFE.jpg",
+                //       width: 100,
+                //       height: 100,
+                //       fit: BoxFit.fill,
+                //     ),
+                //   ),
+                // ),
                 const SizedBox(
                   height: 50,
                 ),
@@ -88,8 +123,8 @@ class _NovoPredioState extends State<NovoPredio> {
                 ),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text("Cadastrar"),
                   ),
                 )

@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:ronda/app/configs/palette.config..dart';
 import 'package:flutter/material.dart';
-import 'package:ronda/app/views/pages/landing.page.dart';
+import 'package:ronda/app/pages/landing.page.dart';
+import 'package:ronda/routes.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
@@ -10,9 +11,9 @@ void main() {
     setWindowTitle('Api Demo');
     setWindowMinSize(const Size(400, 700));
     //setWindowMaxSize(Size.infinite);
-    setWindowMaxSize(const Size(400, 700));
+    //setWindowMaxSize(const Size(400, 700));
   }
-  
+
   runApp(const ApWidget());
 }
 
@@ -21,17 +22,17 @@ class ApWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: Palette.customBlue.shade50,
-          primarySwatch: Palette.customBlue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-      home: const LandingPage(),
+        scaffoldBackgroundColor: Palette.customBlue.shade50,
+        primarySwatch: Palette.customBlue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      //home: const LandingPage(),
+      routerDelegate: routes.routerDelegate,
+      routeInformationParser: routes.routeInformationParser,
+      routeInformationProvider: routes.routeInformationProvider,
     );
   }
 }
-
-
-
