@@ -23,11 +23,12 @@ class _LoginPageState extends State<LoginPage> {
             key: _formkey,
             child: Stack(children: [
               SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  child: Image.asset(
-                    'assets/login/fundo.jpg',
-                    fit: BoxFit.cover,
-                  )),
+                height: MediaQuery.of(context).size.height,
+                child: Image.asset(
+                  'assets/login/fundo.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
               Container(
                 //width: double.infinity,
                 //height: double.infinity,
@@ -37,8 +38,8 @@ class _LoginPageState extends State<LoginPage> {
                     constraints: const BoxConstraints(
                       minWidth: 100,
                       maxWidth: 300,
-                      minHeight: 200,
-                      maxHeight: 400,
+                      //minHeight: 200,
+                      maxHeight: 250,
                     ),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -57,11 +58,11 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "assets/logo.png",
-                            width: 150,
-                            height: 150,
-                          ),
+                          // Image.asset(
+                          //   "assets/logo.png",
+                          //   width: 150,
+                          //   height: 150,
+                          // ),
                           TextFormField(
                             decoration: const InputDecoration(
                               labelText: 'User',
@@ -88,18 +89,14 @@ class _LoginPageState extends State<LoginPage> {
                               AppController.instance
                                   .Login(_usuarioController.text,
                                       _senhaController.text)
-                                  .then((value) => {
-                                        if (value)
-                                          {
-                                            GoRouter.of(context)
-                                                .pushReplacement('/home')
-                                          }
-                                        else
-                                          {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(snackBar)
-                                          }
-                                      });
+                                  .then((value) {
+                                if (value) {
+                                  GoRouter.of(context).pushReplacement('/home');
+                                } else {
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }
+                              });
                             },
                             child: const Text('Entrar'),
                           ),

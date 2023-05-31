@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ronda/app/pages/login.page.dart';
@@ -56,5 +57,18 @@ class AppController extends ChangeNotifier {
     auth = Auth.fromJson(jsonDecode(jsonString));
 
     return true;
+  }
+
+  Future<List<List<String>>> loadPredios() async {
+    await Future.delayed(const Duration(seconds: 2));
+
+    return [
+      ["Condomonio VP", "Vila Alpina", "uKRGcFE"],
+      ["Predio Pinheiros", "Pinheiros", "pDrBgw9"],
+      ["Condomio do tatu", "Tatuapé", "BheR0n6"],
+      ["Predio Gua", "Guararema", "HWuffaQ"],
+      ["Condomio Corint", "Guarulhos", "uXGNj7n"],
+      ["Predio Catetano", "São Caetano", "5GyyFB3"]
+    ];
   }
 }

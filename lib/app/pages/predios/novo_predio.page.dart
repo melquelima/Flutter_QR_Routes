@@ -10,6 +10,14 @@ class NovoPredio extends StatefulWidget {
 }
 
 class _NovoPredioState extends State<NovoPredio> {
+  Widget image = Image.asset(
+    //"https://s2.glbimg.com/m4sELSI7M4B_xmLbBsfEz9ESS-c=/smart/e.glbimg.com/og/ed/f/original/2020/09/08/10-predios-mais-altos-brasil-orion-goiania.jpg",
+    "assets/no_image.jpg",
+    width: 100,
+    height: 100,
+    fit: BoxFit.fill,
+  );
+
   final _formkey = GlobalKey<FormState>();
   final _usuarioController = TextEditingController();
   final _senhaController = TextEditingController();
@@ -37,13 +45,7 @@ class _NovoPredioState extends State<NovoPredio> {
                       children: <Widget>[
                         ClipRRect(
                           borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            //"https://s2.glbimg.com/m4sELSI7M4B_xmLbBsfEz9ESS-c=/smart/e.glbimg.com/og/ed/f/original/2020/09/08/10-predios-mais-altos-brasil-orion-goiania.jpg",
-                            "https://i.imgur.com/uKRGcFE.jpg",
-                            width: 100,
-                            height: 100,
-                            fit: BoxFit.fill,
-                          ),
+                          child: image,
                         ),
                         Align(
                           alignment: Alignment.bottomRight,
